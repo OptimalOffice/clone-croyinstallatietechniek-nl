@@ -1,0 +1,1220 @@
+<!DOCTYPE html >
+
+<html class="" lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://croyinstallatietechniek.nl/',
+        AccountUUID: 'de7a23f00f46471a8eeb1dab1123abe4',
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: 'fc46a2d9',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Sat Jun 15 17:50:36 UTC 2024',
+        ExternalUid: '23751396-1f32-4093-bfe8-8fa890998bcb',
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: '932816b5701f403aad5029b030c3e82d',
+        InitialPageId: '1153895255',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: '4922a071f3eb462482721d00887b9d76',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '44960',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'nl',
+        currentLocale: 'nl',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 4,
+            NavbarLiveHomePage: 'https://croyinstallatietechniek.nl/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '601',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'nl',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 6;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+<!-- Injecting site-wide to the head -->
+<!-- End Injecting site-wide to the head -->
+<!-- Inject secured cdn script -->
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+<link href="https://www.croyinstallatietechniek.nl/" rel="canonical"/>
+<meta content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" id="view" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<!--Add favorites icons-->
+<link href="https://irp.cdn-website.com/fc46a2d9/dms3rep/multi/Logo_Croy_FC_3x2cm-%28002%29-347w.png" rel="apple-touch-icon">
+<link href="https://irp.cdn-website.com/fc46a2d9/site_favicon_16_1668616439018.ico" rel="icon" type="image/x-icon"/>
+<!-- End favorite icons -->
+<link href="https://lirp.cdn-website.com/" rel="preconnect"/>
+<!-- render the required CSS and JS in the head section -->
+<script id="d-js-dmapi">
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+<!-- loadCSS function header.jsp-->
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+body #dm #\31 088046178:not(.photo-gallery-done):not([data-widget-initialized]) { height: 391.0px !important; min-height: initial;}
+</style>
+<style id="cssVariables" type="text/css">
+</style>
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+  
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  
+</style>
+<style id="criticalCss">
+    @charset "UTF-8";@font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:500;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.dmInner{min-height:100vh!important;position:relative;min-width:768px!important}[dmtemplateid*=amburger] .dmLayoutWrapper{overflow:hidden}.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0}.clearfix:after,.clearfix:before{content:' ';display:table}.clearfix{display:inline-block}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{position:fixed;margin:0;display:none;width:10px;z-index:1000000999;top:0;left:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{text-align:left;position:fixed;top:10px;left:0;width:93%;z-index:1000009999!important;box-sizing:border-box;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}.lh-1,button{line-height:normal}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}#dm .dmBody .dmRespRowsWrapper,.dmLargeBody .dmBody .dmRespRowsWrapper,.runtime-module-container[dmtemplateid*=amburger] .dmLayoutWrapper{background-color:transparent}#dm .dmRespRow .dmRespColsWrapper{display:flex}.pswp{display:none;z-index:9999999999!important}#dm .hasBackgroundOverlay:not(.dmPopupPage):not(.layout-drawer){position:relative!important}#dm .hasBackgroundOverlay:not(.hasExtraLayerOverlay):before{display:block!important;position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;content:' '!important;border-radius:inherit}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}.dmRespRow .dmRespColsWrapper .dmRespCol[data-gallery-bg]{min-height:100px}#dmRoot{text-decoration-skip-ink:none}@media (min-width:1025px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnMedium,#dmRoot.responsiveTablet #dm .dmInner .hide-for-large{display:none!important}#dmRoot.responsiveTablet #dm [data-responsive-name=ResponsiveDesktopTopTabletHamburger] .site_content{margin-top:0!important}:root{--btn-text-font-size:16px}}@media (min-width:768px) and (max-width:1024px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer #hamburger-header-container~#stickyHeaderSpacer,#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnLarge{display:none!important}:root{--btn-text-font-size:16px}}@media (max-width:767px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer #hamburger-header-container~#stickyHeaderSpacer,#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnLarge{display:none!important}}body{-webkit-overflow-scrolling:touch}:not(.runtime-module-container) .layout-drawer,:not(.runtime-module-container) .layout-drawer-hamburger,:not(.runtime-module-container) .layout-drawer-overlay{visibility:hidden}:not(.runtime-module-container) .layout-drawer{position:fixed;transform:translate(-100%,-100%)}:not(.runtime-module-container) .layout-drawer-overlay{opacity:0}.runtime-module-container{width:100%}.runtime-module-container[dmtemplateid*=amburger] #site_content,.runtime-module-container[dmtemplateid*=amburger] .dmInner{position:static}.runtime-module-container[dmtemplateid*=amburger] #site_content .site_content{position:relative}.runtime-module-container .hamburger-header-container{position:fixed;z-index:2;top:0;left:0;width:100%}.runtime-module-container .hamburger-header-container .hamburger-header{min-height:43px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-hamburger,.runtime-module-container .layout-drawer-overlay{visibility:visible}.runtime-module-container[dmtemplateid*=amburger] .site_content{margin-top:59px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-overlay{height:100%;position:fixed;top:0;left:0}.runtime-module-container .layout-drawer{background-color:#fff;width:75vw;transform:translate(-100%,0);overflow:auto;-webkit-overflow-scrolling:auto;z-index:13;display:flex;flex-direction:column}.runtime-module-container .layout-drawer .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0}.runtime-module-container .layout-drawer[data-origin=side]{width:75vw}.runtime-module-container .layout-drawer-overlay{width:100vw;background-color:rgba(0,0,0,.4);opacity:0;z-index:6}body:not([data-flex-site]) .layout-drawer .dmRespRow:not(:first-of-type):not(:last-of-type){flex:1 1 auto}.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:18px;margin-left:env(safe-area-inset-left);padding:17px 11px;z-index:14;width:52px;height:52px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:18px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}@media (max-width:767px){.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:10px;margin-left:env(safe-area-inset-left);padding:13px 9px;z-index:14;width:40px;height:40px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:10px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}}#dm-outer-wrapper #hamburger-header-container #hamburger-header .dmRespCol{display:flex;flex-direction:column;justify-content:center}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}b,strong{font-weight:700}hr{box-sizing:content-box;height:0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}*,:after,:before{box-sizing:border-box}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}@media screen and (min-width:1200px){.rows-1200 .dmRespRow:not(.fullBleedMode) .dmRespColsWrapper{max-width:1200px}}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-4{position:relative;width:33.33333%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}.socialHubIcon,[class*=' dm-common-icons-'],[class*=' dm-social-icons-']{font-family:dm-social-icons!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.dm-social-icons-whatsapp:before{content:'\e904'}.dm-social-icons-email:before{content:'\eace'}[class*=' dm-common-icons-']{font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}#dm div.dmContent [class*=' icon-'],[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}[class*=' icon-']{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:'\f005'}.icon-phone:before{content:'\f095'}.icon-angle-down:before{content:'\f107'}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:280px;max-width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.flexButton):not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmInner .dmWidget.slide-button{margin-bottom:0}#dm .dmInner .dmWidget:after{content:'';display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;line-height:normal;white-space:normal;padding:10px 7px;max-width:98%}#dm .dmWidget.slide-button:after{display:none}p.rteBlock{margin:0}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-left{text-align:left!important}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] h1,.dmNewParagraph[data-version] h2,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}.flexslider .slides img{width:100%;display:block;margin:auto}.flexslider .slides>li .slide-inner *{line-height:normal}#dm .dmInner .flexslider .slides>li .slide-inner .slide-button{margin-top:20px;margin-left:auto;margin-right:auto}#dm .flexslider .slides .dmWidget .text{max-width:100%;width:100%;padding:10px 20px!important}#dm .dmInner .flexslider.ed-version .slide-button{-js-display:inline-flex;display:inline-flex;justify-content:center;align-items:center}.flexslider.ed-version .slides img{display:none}.flexslider.ed-version:not([layout]) .slides>li[layout=center] .slide-inner .slide-button.slide-button-invisible{display:none!important}.imageWidget{position:relative}.imageWidget a{font-style:italic;text-align:center}.imageWidget img[width][height]{height:auto}#dm .socialHubInnerDiv a:not(:last-child){margin-right:5px}.socialHubIcon{display:flex!important;align-items:center;justify-content:center}.socialHubIcon.style6,.style6.dmSocialEmail{background:#617379}.style6.dmSocialWhatsapp{background:#25d366}#toTopButton{display:visible;position:fixed;bottom:20px;right:30px;z-index:99;padding:15px;border-radius:10px}.widget-7b2ba5 *{margin:0}.widget-7b2ba5 .nav{display:flex;justify-content:space-around;flex-direction:row}.widget-7b2ba5 .text{display:inline}.widget-7b2ba5 .tab-label,.widget-7b2ba5 .tab-label.layout-a.not-active>h4{text-align:center}.widget-7b2ba5 .tab-label{flex:1 1 0%}.widget-7b2ba5 .tab-label .horizontal-label{margin:18px}.widget-7b2ba5 .tab-label.layout-a.not-active{border-bottom:1px solid #ededed;text-align:center;font-weight:400;color:#878787}.widget-7b2ba5 .tab-label.not-active.layout-a>h4{font-weight:400;color:#878787}.widget-7b2ba5 .tab-label.active.layout-a{border-bottom:3px solid #313131;font-weight:700;color:#000}.widget-7b2ba5 .tab-label.active.layout-a>h4{font-weight:700;color:#000}.widget-7b2ba5 .tab.active{display:flex}.widget-7b2ba5 .tab{display:none;text-align:left!important;flex:1 1 0%;flex-basis:auto;justify-content:space-around;align-content:flex-start;padding-top:30px;max-width:100%}.widget-7b2ba5 .tab.layout-a{padding-left:0;padding-right:0;padding-bottom:0}.widget-7b2ba5 .tab .image-container{order:1;background-position:center;background-size:cover;max-width:100%}.widget-7b2ba5 .tab .tab-text-container{order:3;flex:1 1 0%;display:flex;flex-direction:column;justify-content:center}.widget-7b2ba5 .tab .image-container .image{margin:0 auto;visibility:hidden;width:100%}.widget-7b2ba5 .tab .tab-text-container .tab-description{overflow-y:auto!important;overflow-x:hidden;overflow-wrap:break-word;word-wrap:break-word;hyphens:auto;text-align:left!important}.widget-7b2ba5 .btn-container{display:flex;flex-direction:column;align-items:flex-start}.widget-7b2ba5 .button-class{margin-bottom:0!important;max-width:100%}.widget-7b2ba5 .button-class span.text{color:red;overflow-wrap:initial!important;margin-bottom:0;padding:10px 20px!important}.widget-7b2ba5 .text,.widget-7b2ba5 h4{margin:0 0 10px}.widget-7b2ba5 .text{max-width:100%!important}.widget-7b2ba5 .wrapper{overflow:hidden;display:flex}.widget-7b2ba5 .wrapper.layout-a{flex-direction:column}.widget-7b2ba5 .tab-label{overflow:hidden;overflow-wrap:break-word}.widget-7b2ba5 .tab{padding-left:30px;padding-right:30px;padding-bottom:30px}.widget-7b2ba5 .tab .tab-space{order:2;flex-basis:20px}.widget-7b2ba5 .tab .tab-text-container .desc-title{font-weight:700;font-size:22px;margin-bottom:15px}.widget-7b2ba5 .tab .image-container{width:240px;display:flex;align-items:flex-start}.widget-7b2ba5 .tab .image-container.layout-a{width:387px;height:292px}.widget-7b2ba5 .button-class{width:auto!important;margin-top:15px!important}img[width][height]{height:auto}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h1,h2,h4,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}span.oneIcon:before{display:inline-block}.clearfix,a,img,li,ul{vertical-align:top}#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmInner{font-size:16px;background:#fff;color:#666}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939;outline:0;vertical-align:inherit}.dmInner ul:not(.defaultList){padding:0}.dmHeader{background:#68ccd1;color:#666;text-align:center;position:relative;width:100%;max-width:100%}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmRespCol>[dmle_extension]:not(:first-child){margin-top:10px}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}#dm .dmRespColsWrapper,.dmStandardDesktop{display:block}.imageWidget:not(.displayNone) img{width:100%}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:only-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmStandardDesktop{margin:0 auto}#dm .dmDivider{display:block;margin:10px 0}.dmSocialHub{clear:both}#dm .dmSocialHub a{display:inline-block;text-decoration:none;margin:0;vertical-align:bottom}.dmSocialHub>div{text-align:inherit}a span.socialHubIcon{width:36px;height:36px;font-size:31px;display:inline-block;text-align:center;margin-right:0;margin-bottom:5px;line-height:36px;box-sizing:content-box;background-image:none!important}.socialHubIcon.style6{font-size:24px;padding:4px;border-radius:50%;color:#fff}#dm .dmSocialHub .socialHubWrapper{display:inline-block;max-width:100%}body{background-color:#eee}.dmDivider{min-height:2px;border:currentColor;color:grey;background:0 0}#dm .dmDividerWrapper{display:block}[dmle_extension=custom_extension] .dmWidget{width:150px;padding:0 7px}.main-navigation.unifiednav{display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{opacity:1}.main-navigation.unifiednav.effect-bottom{padding:calc(12px - .2em - 2px) 15px}.main-navigation.unifiednav.effect-bottom .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform:scaleX(0);border-top-width:2px}.main-navigation.unifiednav.effect-bottom .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{margin-top:.2em}.main-navigation.unifiednav.effect-bottom .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{margin-bottom:.2em;border-top-color:transparent}.main-navigation.unifiednav.effect-bottom .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav.effect-bottom .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{transform:scaleX(1)}.main-navigation.unifiednav.effect-background{padding:0}.main-navigation.unifiednav.effect-background .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:12px 15px;margin:0 15px 0 0}.main-navigation.unifiednav.effect-background .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected{background-color:#333;color:#fafafa}.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav[layout-main=horizontal_nav_layout_8] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{border-radius:30px;padding:12px 30px;margin:0 15px 0 0}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container{flex-direction:column;flex:1 1 100%}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{padding:8px 0;margin:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:initial}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap{flex-direction:column}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{content:''!important;width:100%;height:0;color:#d1d1d1;align-self:flex-start;border:0 solid currentColor}#dm .p_hfcontainer div.u_1029441470,a.u_1846308423{border-style:solid!important;border-width:0!important}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_2] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:5px 0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE]>.unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__item.dmNavItemSelected>.nav-item-text .icon::before{transform:rotate(180deg)}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container{flex-wrap:wrap;justify-content:inherit}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container .nav-item-text::before{text-align:left}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{content:''}#dm .dmBody .dmRespRowsWrapper{max-width:none}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#68ccd1;max-width:100%}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:100px!important}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:100px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column{min-height:100px}#dm div.dmRespCol>*{line-height:1.5}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-weight:300}#dm div.dmContent h1{color:#666;font-family:Poppins,"Poppins Fallback";font-weight:700;color:rgba(0,0,0,1);font-size:50px}#dm div.dmContent h2,#dm div.dmContent h4{color:rgba(0,0,0,1);font-family:Poppins,"Poppins Fallback"}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-family:Montserrat,"Montserrat Fallback";color:rgba(0,0,0,1);font-size:16px}#dm div.dmContent h4{font-style:normal;font-weight:400}#dm div.dmContent h2{font-weight:700;font-size:32px}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{font-family:Poppins,"Poppins Fallback";color:rgba(21,32,75,1)}#dm .dmNewParagraph a,#dm div.dmNewParagraph a{color:rgba(247,207,33,1)}#dm DIV.dmOuter DIV.dmInner{background-color:rgba(255,255,255,1)}#dm .dmContent .dmRespRow{padding-top:15px}#dm div.dmContent h4{font-size:20px}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{font-size:16px}@media all{:root{--btn-border-l-color:rgb(255, 213, 14);--btn-border-r-color:rgb(255, 213, 14);--btn-text-direction:ltr;--btn-border-b-width:var(--btn-border-width);--btn-border-width:0px;--btn-border-radius:0px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgb(247, 207, 33);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:none;--btn-border-b-color:rgb(247, 207, 33);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:rgb(255, 213, 14);--btn-text-align:center;--btn-text-color:rgb(0, 0, 0);--btn-text-decoration:none;--btn-text-font-weight:400;--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:var(--btn-bg-color);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:rgba(0, 0, 0, 0);--btn-hover-text-color:rgb(255, 255, 255);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:16px}}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=FLAT_ROUND_ICON]{background-clip:border-box;border-radius:6px;padding:0 0 0 40px}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=FLAT_ROUND_ICON] .text{padding:10px 7px}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=FLAT_ROUND_ICON] .iconBg{display:block}#dm .dmWidget:not([data-buttonstyle]){overflow:initial;background-clip:border-box;border-radius:1px}#dm .dmWidget:not([data-buttonstyle]) .text{padding:16px 0}#dm .dmWidget:not([data-buttonstyle]) .iconBg{display:none}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:222px}#dm .dmRespRow .dmRespCol>.dmWidget[data-buttonstyle]:not([data-buttonstyle=BORDER_SHORT]){width:280px}}#dm div.dmInner #site_content .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-size:var(--btn-text-font-size);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm .p_hfcontainer .u_1112047164.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1112047164.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before,#dm .p_hfcontainer nav.u_1112047164.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{font-size:14px!important}#dm div.dmInner #site_content .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .p_hfcontainer div.u_1065301344 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer a.u_1245457061{border-radius:6px!important;-moz-border-radius:6px!important;-webkit-border-radius:6px!important}#dm .p_hfcontainer nav.u_1607035573{color:#fff!important}#dm .p_hfcontainer nav.u_1607035573.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected{color:rgba(255,255,255,1)!important;font-weight:400!important}#dm .p_hfcontainer nav.u_1607035573.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{color:rgba(255,255,255,.5)!important;font-weight:400!important}#dm .p_hfcontainer .u_1607035573.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{justify-content:flex-start!important;text-align:left!important;padding-top:12px!important;padding-bottom:12px!important}#dm .p_hfcontainer div.u_1065301344,#dm .p_hfcontainer div.u_1368101915{float:none!important;left:0!important;text-align:center!important;margin:0 auto!important}#dm .p_hfcontainer .u_1607035573.main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{align-self:flex-start!important}#dm .p_hfcontainer div.u_1269789872 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer .u_1269789872{width:100%!important}#dm .p_hfcontainer div.u_1029441470{background-color:rgba(247,207,33,1)!important;border-color:rgba(201,201,201,1)!important}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{background-color:rgba(255,255,255,1)!important;border-style:solid!important;border-width:0!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important;border-color:rgba(57,181,74,1)!important}#dm .p_hfcontainer .u_1112047164.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding-right:30px!important;padding-left:30px!important}#dm .p_hfcontainer div.u_1828174876 hr{color:rgba(21,32,75,1)!important}#dm .dmInner div.dmHeader.u_hcontainer{padding-top:10px!important;padding-bottom:17px!important}#dm .p_hfcontainer div.u_1368101915{top:0!important;width:100%!important;position:relative!important;height:auto!important;max-width:none!important;min-width:0!important;padding:15px 40px!important}#dm .p_hfcontainer div#hamburger-header{background-color:#fff!important;background-image:none!important;background-repeat:repeat!important;background-size:auto!important;background-position:0 0!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important}[dmtemplateid=Hamburger] .layout-drawer-hamburger.hamburger-on-header{color:rgba(247,207,33,1)!important;background-color:rgba(0,0,0,0)!important}#dm .p_hfcontainer div.u_1065301344{top:0!important;width:178px!important;position:relative!important;max-width:100%!important;min-width:25px!important;display:block!important;padding:0!important}#dm .p_hfcontainer .u_1412606415 .socialHubInnerDiv a{margin-right:14px!important}#dm .p_hfcontainer .u_1412606415 .socialHubIcon{width:30px!important;height:30px!important;font-size:20px!important;line-height:30px!important}#dm .p_hfcontainer .u_1412606415 .socialHubIcon:after{width:38px!important;height:30px!important}#dm .p_hfcontainer div.u_1052193825{padding:0!important;margin:0!important}#dm .p_hfcontainer nav.u_1607035573.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{font-size:24px!important}#dm .p_hfcontainer div.u_1447031230{margin-top:0!important;padding:0!important}#dm .p_hfcontainer div.u_1562636677,#dm .p_hfcontainer div.u_1865934944{float:none!important;top:0!important;left:0!important;width:100%!important;position:relative!important;height:auto!important;text-align:left!important;padding:2px 0!important;display:block!important}#dm .p_hfcontainer div.u_1865934944{max-width:100%!important;min-width:0!important;margin:0 auto 8px 0!important}#dm .p_hfcontainer div.u_1562636677{max-width:calc(100% - 0px)!important;min-width:25px!important;margin:16px auto 8px!important}#dm .p_hfcontainer div.u_1412606415,#dm .p_hfcontainer nav.u_1607035573{float:none!important;top:0!important;left:0!important;position:relative!important;max-width:calc(100% - 0px)!important;padding:0!important;height:auto!important;min-width:25px!important}#dm .p_hfcontainer nav.u_1607035573{width:892.99px!important;justify-content:flex-start!important;align-items:stretch!important;text-align:start!important;margin:70px 0 0!important}#dm .p_hfcontainer div.u_1412606415{width:100%!important;text-align:left!important;display:block!important;margin:38px auto 0!important}#dm .p_hfcontainer div.u_1101020123{padding-top:30px!important;margin-top:0!important;padding-right:50px!important;padding-left:50px!important}#dm .p_hfcontainer div.u_1079076412{margin-top:0!important;padding:0 50px 100px!important}#dm .p_hfcontainer #hamburger-drawer.layout-drawer:not([data-origin=top]){width:44vw!important}div[dmtemplateid=Hamburger] .layout-drawer-overlay{background-color:rgba(0,0,0,0)!important}#dm .p_hfcontainer div#hamburger-drawer.layout-drawer{background-image:initial!important;background-color:rgba(32,32,32,.92)!important}.stickyHeaderSpacer{height:228.72px!important}[dmtemplateid=Hamburger].runtime-module-container .layout-drawer-hamburger{top:18.58px!important}[dmtemplateid=Hamburger] .site_content{margin-top:89.16px!important}@media (min-width:1025px){.responsiveTablet .stickyHeaderSpacer{height:223px!important}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet [dmtemplateid=Hamburger].runtime-module-container .layout-drawer-hamburger{top:18.58px!important}.responsiveTablet [dmtemplateid=Hamburger] .site_content{margin-top:89.16px!important}}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:15px 0!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}#dm .p_hfcontainer div.u_1307929330{padding:0!important}#dm .p_hfcontainer div.u_1363675667{padding-left:0!important}#dm .p_hfcontainer div.u_1681002588{padding-left:10px!important}#dm .p_hfcontainer a.u_1245457061,#dm .p_hfcontainer div.u_1269789872{display:block!important;float:none!important;top:0!important;left:0!important;padding:0!important;position:relative!important}#dm .p_hfcontainer nav.u_1112047164.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer nav.u_1112047164.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{padding-top:0!important;padding-bottom:0!important;margin-top:0!important;margin-bottom:0!important}#dm .p_hfcontainer div.u_1269789872{width:calc(100% - 44px)!important;max-width:214px!important;min-width:25px!important;text-align:center!important;height:auto!important;margin:12px 84.41px 0 44px!important}#dm .p_hfcontainer a.u_1245457061{width:calc(100% - 45px)!important;height:43px!important;max-width:236px!important;min-width:25px!important;text-align:center!important;margin:0 0 0 45px!important}#dm .p_hfcontainer div.u_1029441470,#dm .p_hfcontainer div.u_1257544201{float:none!important;top:0!important;left:0!important;height:auto!important;min-width:0!important;text-align:center!important}#dm .dmInner div.fHeader.dmHeaderContainer #hcontainer.dmHeader[freeheader=true]{margin:0!important;padding:15px 0!important}#dm .dmInner div.u_hcontainer{padding:0!important}#dm .p_hfcontainer div.u_1029441470{width:auto!important;position:relative!important;max-width:100%!important;margin:0!important;padding:0 40px!important}#dm .p_hfcontainer div.u_1257544201{width:100%!important;position:relative!important;max-width:none!important;padding:0!important;margin:0 auto!important}#dm .dmBody div.u_1474406056,#dm .p_hfcontainer nav.u_1112047164{float:none!important;top:0!important;left:0!important;position:relative!important;height:auto!important;min-width:25px!important}#dm .p_hfcontainer nav.u_1112047164{width:calc(100% - 0px)!important;max-width:100%!important;justify-content:center!important;align-items:stretch!important;text-align:start!important;padding:3px 0 0!important;margin:0!important}#dm .dmBody .u_1803448052:before{opacity:.5!important;background-color:#000!important}#dm .dmBody div.u_1626794827{line-height:normal!important;border-bottom-style:solid!important;border-bottom-color:rgba(247,207,33,1)!important;border-bottom-width:0!important}#dm .dmBody div.u_1803448052{background-repeat:no-repeat!important;background-image:url(https://lirp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/opt/photo-1542013936693-884638332954-1920w.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody div.u_1589677807{background-repeat:no-repeat!important;background-image:none!important;background-size:cover!important}#dm .dmBody a.u_1846308423 .iconBg{display:inline!important}#dm .dmBody a.u_1846308423 span.icon{color:rgba(32,32,32,1)!important;fill:rgba(32,32,32,1)!important}#dm .dmBody div.u_1803448052:before{background-color:rgba(15,24,39,1)!important;opacity:.47!important}#dm .dmBody div.u_1584825203 hr{color:rgba(21,32,75,1)!important}#dm .dmBody div.u_1474406056{line-height:2!important;display:block!important;width:calc(100% - 237px)!important;max-width:486px!important;padding:2px 0!important;margin:8px auto!important}#dm .dmBody div.u_1393394799{padding-top:0!important}#dm .dmBody div.u_1243155475,#dm .dmBody div.u_1498599194,#dm .dmBody div.u_1626794827{width:calc(100% - 0px)!important;min-width:25px!important;display:block!important;padding:2px 0!important;float:none!important;top:0!important;left:0!important;position:relative!important;height:auto!important}#dm .dmBody div.u_1498599194{max-width:610px!important;margin:-8px 328px 8px 0!important}#dm .dmBody div.u_1243155475{max-width:100%!important;margin:20px auto 8px!important}#dm .dmBody div.u_1626794827{max-width:698px!important;margin:0 0 8px!important}#dm .dmBody div.u_Serviceshomepage{float:none!important;top:0!important;left:0!important;width:auto!important;position:relative!important;height:auto!important;max-width:100%!important;min-width:0!important;text-align:start!important;padding:0 40px!important;margin:0!important}#dm .dmBody a.u_1846308423,a.u_1846308423{min-width:25px!important;padding:0 0 0 40px!important;float:none!important;top:0!important;left:0!important;position:relative!important;text-align:center!important}a.u_1846308423{border-radius:6px!important;-moz-border-radius:6px!important;-webkit-border-radius:6px!important;width:350px!important;height:43.99px!important;max-width:187px!important}#dm .dmBody a.u_1846308423{width:calc(100% - 0px)!important;height:40px!important;max-width:218.99px!important;margin:0!important}#dm .dmBody div.u_1088046178{margin:10px 0 0!important;padding:0!important}#dm .dmBody div.u_1803448052{float:none!important;top:0!important;left:0!important;width:auto!important;position:relative!important;height:auto!important;max-width:100%!important;min-width:0!important;text-align:center!important;background-attachment:fixed!important;background-size:cover!important;background-position:50% 50%!important;padding:81px 40px 59px!important;margin:0!important}.font-size-22{font-size:22px!important}.font-size-18{font-size:18px!important}.font-size-70,.size-70{font-size:70px!important}.dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop=none]),.dmDesktopBody:not(.editGrid) [data-anim-extended]{visibility:hidden}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+</style>
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Lato Fallback";
+  src: local('Arial');
+  ascent-override: 101.3181%;
+  descent-override: 21.865%;
+  size-adjust: 97.4159%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Poppins Fallback";
+  src: local('Arial');
+  ascent-override: 92.326%;
+  descent-override: 30.7753%;
+  line-gap-override: 8.793%;
+  size-adjust: 113.7274%;
+}@font-face {
+  font-family: "Montserrat Fallback";
+  src: local('Arial');
+  ascent-override: 84.9466%;
+  descent-override: 22.0264%;
+  size-adjust: 113.954%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Amiko Fallback";
+  src: local('Arial');
+  ascent-override: 82.254%;
+  descent-override: 35.9861%;
+  size-adjust: 112.8212%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Comfortaa Fallback";
+  src: local('Arial');
+  ascent-override: 74.2135%;
+  descent-override: 19.7117%;
+  size-adjust: 118.7115%;
+  line-gap-override: 0%;
+ }
+</style>
+<!-- End render the required css and JS in the head section -->
+<meta content="website" property="og:type"/>
+<meta content="https://www.croyinstallatietechniek.nl/" property="og:url"/>
+<script type="application/ld+json">
+    {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Croy installatie techniek B.V.",
+        "url" : "https://www.croyinstallatietechniek.nl/"
+    }
+</script>
+<title>
+    Croy Installatie Techniek
+  </title>
+<meta content="Loodgieter , Installateur , Loodgieter Eindhoven , loodgieter , Loodgieter eindhoven , loodgieter eindhoven , loodgieter Eindhoven , Loodgieter Veldhoven , loodgieter veldhoven" name="keywords">
+<meta content="summary" name="twitter:card">
+<meta content="Croy Installatie Techniek" name="twitter:title">
+<meta content="Croy Installatie Techniek" property="og:title">
+<!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+</meta></meta></meta></meta></link></head>
+<body class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody responsiveTablet" data-page-alias="home" id="dmRoot" style="padding:0;margin:0;">
+<!-- ========= Site Content ========= -->
+<div class="dmwr" id="dm">
+<div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+<div class="dm-home-page" desktop-global-classes="" dmwrapped="true" id="1901957768" tablet-global-classes="" themewaschanged="true"> <div class="runtime-module-container dm-bfs dm-layout-home hasAnimations hasStickyHeader rows-1200 dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex" data-page-class="1716942098" data-responsive-name="ResponsiveDesktopTopTabletHamburger" data-soch="true" dmtemplateid="Hamburger" id="dm-outer-wrapper"> <div class="dmOuter" id="dmStyle_outerContainer"> <div class="dmInner" id="dmStyle_innerContainer"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div id="site_content"> <div class="p_hfcontainer showOnMedium"> <div class="hamburger-drawer layout-drawer" data-origin="side" id="hamburger-drawer" layout="e9d510f4eb904e939c2be8efaf777e6e===header"> <div class="u_1447031230 dmRespRow" id="1447031230" style="text-align: center;"> <div class="dmRespColsWrapper" id="1122832636"> <div class="u_1052193825 dmRespCol small-12 medium-12 large-12 empty-column" id="1052193825"></div>
+</div>
+</div>
+<div class="u_1101020123 dmRespRow middleDrawerRow" id="1101020123" style="text-align: center;"> <div class="dmRespColsWrapper" id="1038374818"> <div class="dmRespCol small-12 u_1833246309 medium-12 large-12" id="1833246309"> <nav adwords="" alt="" class="u_1607035573 effect-bottom main-navigation unifiednav dmLinksMenu" data-element-type="onelinksmenu" data-logo-src="" data-nav-structure="VERTICAL" data-show-vertical-sub-items="HIDE" dmle_extension="onelinksmenu" icon="true" id="1607035573" layout-main="vertical_nav_layout_2" layout-sub="" navigation-id="unifiedNav" role="navigation" surround="true" wr="true"> <ul class="unifiednav__container" data-auto="navigation-pages" role="menubar"> <li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmNavItemSelected dmUDNavigationItem_00" data-auto="selected-page" data-target-page-alias="" href="/" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Home
+        ">Home<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101653641" data-target-page-alias="" href="/service" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Services
+        ">Services<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_01010177106" data-target-page-alias="" href="/CV" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         CV  Installaties
+        ">CV  Installaties<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101661768" data-target-page-alias="" href="/lekkage" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Lekkage
+        ">Lekkage<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101538815" data-target-page-alias="" href="/verwaring-koeling" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Verwarming en koeling
+        ">Verwarming en koeling<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101534814" data-target-page-alias="" href="/waterleidingen" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Waterleidingen
+        ">Waterleidingen<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101905741" data-target-page-alias="" href="/zinkwerk" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Zinkwerk
+        ">Zinkwerk<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_01010165350" data-target-page-alias="" href="/contact" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Contact
+        ">Contact<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="dmRespRow u_1079076412" id="1079076412" style="text-align: center;"> <div class="dmRespColsWrapper" id="1109086043"> <div class="u_1542509824 dmRespCol small-12 medium-12 large-12" id="1542509824"> <div class="u_1865934944 dmNewParagraph" id="1865934944" style="transition: none;"><div style="text-align: left;"><span style=""><span style=""><font style="color: rgb(247, 207, 33);"><span class="font-size-22 lh-1" style=""><b style=""><span style="font-weight: 700;">Neem contact op</span></b></span></font></span></span></div></div> <div class="u_1562636677 dmNewParagraph" id="1562636677"><div><span style="font-size: 20px;"><font style="color: rgb(255, 255, 255);"></font></span></div><div><span class="font-size-18 lh-1" style="font-weight: 400;"><font style=""><div style="text-align: left;"><a href="tel:06-16665131" runtime_url="tel:06-16665131" style="text-decoration: none; color: rgb(255, 255, 255);"><font style="color: rgb(255, 255, 255);">06 16665131</font></a></div><div style="text-align: left;"><a href="mailto:Info@croyinstallatietechniek.nl" runtime_url="mailto:Info@croyinstallatietechniek.nl" style="text-decoration: none; color: rgb(255, 255, 255);"><font style="color: rgb(255, 255, 255);">Info@croyinstallatietechniek.nl</font></a><br/></div></font></span></div><div><span style="font-size: 20px;"><font style="color: rgb(255, 255, 255);"></font></span></div></div> <div adwords="" class="u_1412606415 align-center text-align-center dmSocialHub gapSpacing" data-element-type="social_hub" dmle_extension="social_hub" icon="true" id="1412606415" networks="" surround="true" wr="true"> <div class="socialHubWrapper"> <div class="socialHubInnerDiv"> <a aria-label="email" dm_dont_rewrite_url="true" href="mailto:info@croyinstallatietechniek.nl" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Email')"> <span aria-hidden="true" class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style6" data-hover-effect=""></span>
+</a>
+<a aria-label="whatsapp" dm_dont_rewrite_url="true" href="https://wa.me/06-16665131" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Whatsapp')" target="_blank"> <span aria-hidden="true" class="dmSocialWhatsapp dm-social-icons-whatsapp oneIcon socialHubIcon style6" data-hover-effect=""></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="layout-drawer-overlay" id="layout-drawer-overlay"></div>
+</div>
+<div class="site_content"> <div class="showOnMedium hamburger-header-container p_hfcontainer" id="hamburger-header-container"> <div class="hamburger-header p_hfcontainer" id="hamburger-header" layout="44dc38f951e9489490b055748e10ba9f===header"> <div class="u_1368101915 dmRespRow" id="1368101915" style="text-align: center;"> <div class="dmRespColsWrapper" id="1665411207"> <div class="dmRespCol small-12 u_1802694109 medium-4 large-4 content-removed" id="1802694109"> <a class="u_1245457061 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" data-buttonstyle="FLAT_ROUND_ICON" data-display-type="block" data-element-type="dButtonLinkId" file="false" href="tel:06-16665131" id="1245457061"> <span class="iconBg" id="1975009463"> <span class="icon hasFontIcon icon-star" id="1510698549"></span>
+</span>
+<span class="text" id="1768215722">Bel  06-16 66 51 31</span>
+</a>
+</div>
+<div class="dmRespCol small-12 medium-4 large-4" id="1662706043"> <div class="u_1065301344 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1065301344"> <a file="false" href="/" id="1078141163"><img class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/fc46a2d9/dms3rep/multi/Logo_Croy_FC_3x2cm+%28002%29.jpg" height="0.0" id="1898175842" onerror="handleImageLoadError(this)" src="./images/Logo_Croy_FC_3x2cm+%28002%29-1920w.jpg" width="0.0"/></a>
+</div>
+</div>
+<div class="dmRespCol small-12 medium-4 large-4 empty-column" id="1383423413"></div>
+</div>
+</div>
+</div>
+</div>
+<button aria-label="menu" class="showOnMedium layout-drawer-hamburger hamburger-on-header" id="layout-drawer-hamburger"> <span class="hamburger__slice"></span>
+<span class="hamburger__slice"></span>
+<span class="hamburger__slice"></span>
+</button>
+<div class="dmHeaderContainer fHeader d-header-wrapper showOnLarge"> <div class="dmHeader p_hfcontainer u_hcontainer" data-scroll-responder-id="1" data-scrollable-target="body" data-scrollable-target-threshold="1" freeheader="true" id="hcontainer" layout="3e258119881349f1b0afec8887fc1e4b===header" logo-size-target="100%" mini-header-show-only-navigation-row="true"> <div class="dmHeaderResp dmHeaderStack noSwitch" dm:templateorder="85" id="1709005236"> <div class="u_1257544201 dmRespRow dmDefaultListContentRow" id="1257544201" style="text-align:center"> <div class="dmRespColsWrapper" id="1569101344"> <div class="u_1363675667 dmRespCol small-12 large-4 medium-4 empty-column" id="1363675667"></div>
+<div class="u_1681002588 dmRespCol small-12 large-4 medium-4" id="1681002588"> <div class="u_1269789872 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1269789872"><img class="" data-dm-image-path="https://irp.cdn-website.com/fc46a2d9/dms3rep/multi/Logo_Croy_FC_3x2cm+%28002%29-c92f193b.jpg" height="118" id="1821726225" onerror="handleImageLoadError(this)" src="./images/Logo_Croy_FC_3x2cm+%28002%29-c92f193b-256w.jpg" width="355"/></div>
+</div>
+<div class="u_1307929330 small-12 dmRespCol large-4 medium-4 empty-column" id="1307929330"></div>
+</div>
+</div>
+<div class="u_1029441470 dmRespRow" id="1029441470" style="text-align: center;"> <div class="dmRespColsWrapper" id="1561458546"> <div class="dmRespCol small-12 medium-12 large-12" id="1450930359"> <nav adwords="" class="u_1112047164 effect-background main-navigation unifiednav dmLinksMenu" data-element-type="onelinksmenu" data-logo-src="https://lirp.cdn-website.com/fc46a2d9/dms3rep/multi/opt/Logo_Croy_FC_3x2cm+%28002%29-c92f193b-1920w.jpg" data-nav-structure="HORIZONTAL" data-show-vertical-sub-items="HOVER" dmle_extension="onelinksmenu" icon="true" id="1112047164" layout-main="horizontal_nav_layout_8" layout-sub="submenu_horizontal_1" navigation-id="unifiedNav" role="navigation" surround="true" wr="true"> <ul class="unifiednav__container" data-auto="navigation-pages" role="menubar"> <li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmNavItemSelected dmUDNavigationItem_00" data-auto="selected-page" data-target-page-alias="" href="/" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Home
+        ">Home<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101653641" data-target-page-alias="" href="/service" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Services
+        ">Services<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_01010177106" data-target-page-alias="" href="/CV" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         CV  Installaties
+        ">CV  Installaties<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101661768" data-target-page-alias="" href="/lekkage" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Lekkage
+        ">Lekkage<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101538815" data-target-page-alias="" href="/verwaring-koeling" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Verwarming en koeling
+        ">Verwarming en koeling<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101534814" data-target-page-alias="" href="/waterleidingen" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Waterleidingen
+        ">Waterleidingen<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_010101905741" data-target-page-alias="" href="/zinkwerk" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Zinkwerk
+        ">Zinkwerk<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+<li class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0" role="menuitem"> <a class="unifiednav__item dmUDNavigationItem_01010165350" data-target-page-alias="" href="/contact" target=""> <span class="nav-item-text" data-auto="page-text-style" data-link-text="
+         Contact
+        ">Contact<span class="icon icon-angle-down"></span>
+</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="stickyHeaderSpacer" data-new="true" id="stickyHeaderSpacer"></div>
+<div class="dmBody u_dmStyle_template_home dm-home-page" desktop-global-classes="" dmwrapped="true" id="dmFirstContainer" tablet-global-classes="" themewaschanged="true"> <div class="allWrapper" id="allWrapper"><!-- navigation placeholders --> <div class="dmContent" id="dm_content" role="main"> <div class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl" dm:templateorder="170" id="1716942098"> <div class="u_1803448052 dmRespRow hasBackgroundOverlay dmSectionNoParallax" data-anim-desktop="none" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9saXJwLWNkbi5tdWx0aXNjcmVlbnNpdGUuY29tL21kL3Vuc3BsYXNoL2RtczNyZXAvbXVsdGkvb3B0L3Bob3RvLTE1NDIwMTM5MzY2OTMtODg0NjM4MzMyOTU0LTE5MjB3LmpwZyIsImh0dHBzOi8vbGlycC5jZG4td2Vic2l0ZS5jb20vZmM0NmEyZDkvZG1zM3JlcC9tdWx0aS9vcHQvcGx1bWJpbmdfbWF0ZXJpYWwtMTkyMHcuanBnIiwiaHR0cHM6Ly9saXJwLmNkbi13ZWJzaXRlLmNvbS9mYzQ2YTJkOS9kbXMzcmVwL211bHRpL29wdC9MZWtrYWdlLTE5MjB3LmpwZyIsImh0dHBzOi8vbGlycC5jZG4td2Vic2l0ZS5jb20vZmM0NmEyZDkvZG1zM3JlcC9tdWx0aS9vcHQvSU1HXzk0NzUtMTkyMHcuSlBHIl0sInNwZWVkIjoiMTAifQ==" id="1803448052" style="text-align: center;"> <div class="dmRespColsWrapper" id="1336383107"> <div class="u_1589677807 dmRespCol small-12 medium-12 large-12 dmSectionNoParallax" data-gallery-bg="eyJzbGlkZXMiOltdfQ==" id="1589677807"> <div class="u_1626794827 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1626794827" style="transition:none 0s ease 0s;display:block;line-height:initial;"> <h1 class="text-align-left m-size-45 size-70"><span class="font-size-70 m-font-size-45" style="display: initial; color: rgb(255, 255, 255);">24/7 Bereikbaar</span></h1>
+</div> <div class="u_1498599194 dmNewParagraph" data-version="5" id="1498599194" style="transition: opacity 1s ease-in-out;"><p class="text-align-left"><span class="" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);">We zijn gespecialiseerd in alle aspecten van het loodgieters vak en streven naar een snelle, vriendelijke en betrouwbare dienstverlening.</span>
+</span></p><p class="text-align-left"><span class="" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);">Wij zijn 24/7 bereikbaar op</span>
+</span><span style="display: initial; color: rgb(255, 255, 255); font-weight: bold;">06 16 66 51 31</span></p></div> <a class="u_1846308423 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" data-buttonstyle="FLAT_ROUND_ICON" data-display-type="block" data-element-type="dButtonLinkId" file="false" href="tel:06-16665131" icon-name="icon-phone" id="1846308423"> <span class="iconBg" id="1875081797"> <span class="icon hasFontIconstar hasFontIcon icon-phone" id="1632827904"></span>
+</span>
+<span class="text" id="1563266798">bel 06-16665131</span>
+</a>
+</div>
+</div>
+</div>
+<div class="u_Serviceshomepage dmRespRow" data-anchor="Services homepage" data-anim-desktop="slideInCombo" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJlbnRyYW5jZSIsImFuaW1hdGlvbiI6InNsaWRlSW5Db21ibyIsImR1cmF0aW9uIjoxLjA1LCJkZWxheSI6MCwiaW50ZW5zaXR5IjoxLCJkaXIiOiJsZWZ0In19" id="Serviceshomepage"> <div class="dmRespColsWrapper" id="1622451703"> <div class="dmRespCol large-12 medium-12 small-12 u_1393394799" id="1393394799"> <div class="u_1243155475 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1243155475" style="transition: none 0s ease 0s; text-align: center;"> <h2 class="text-align-center"><span style="font-weight: bold; display: initial;">ONZE SERVICES</span></h2>
+</div> <div class="u_1474406056 dmNewParagraph" data-version="5" id="1474406056" style="text-align: center;"><p class="text-align-center" style=""><span class="" style="display: initial;">Omdat we gespecialiseerde loodgieters zijn, kunt u ervan uitgaan dat wij betrouwbare, professionele diensten verlenen die aan al uw behoeften voldoen. </span></p></div> <div class="dmDividerWrapper clearfix u_1584825203" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1584825203"><hr class="dmDivider" id="1462118047" style="border-width:2px; border-top-style:solid; color:grey;"/></div>
+<div class="widget-7b2ba5 u_1088046178 dmCustomWidget" data-anim-desktop="slideInCombo" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJlbnRyYW5jZSIsImFuaW1hdGlvbiI6InNsaWRlSW5Db21ibyIsImludGVuc2l0eSI6MSwiZGVsYXkiOjAsImR1cmF0aW9uIjoxLCJkaXIiOiJsZWZ0In19" data-element-type="custom_extension" data-lazy-load="" data-title="" data-widget-config="eyJ0YWJzIjpbeyJpbWFnZSI6Imh0dHBzOi8vaXJwLmNkbi13ZWJzaXRlLmNvbS9mYzQ2YTJkOS9kbXMzcmVwL211bHRpL2ltYWdlcy5qcGciLCJpdGVtTGFiZWwiOiJDViBLZXRlbHMiLCJoZWFkaW5nVHlwZSI6Img0IiwiaXRlbVRpdGxlIjoiQ2VudHJhbGUgdmVyd2FybWluZyIsIml0ZW1EZXNjIjoiPHAgY2xhc3M9XCJydGVCbG9ja1wiPkhldCBhYW5zY2hhZmZlbiB2YW4gZWVuIENWLWluc3RhbGxpZSBpcyBuaWV0IGVlbnZvdWRpZywgaGV0IGluc3RhbGxlcmVuIGhpZXJ2YW4gaXMgZWVuIG5vZyBpbmdld2lra2VsZGVyZSBrbHVzLjwvcD48cCBjbGFzcz1cInJ0ZUJsb2NrXCI+Q3JveSBJbnN0YWxsYXRpZXRlY2huaWVrIGthbiBuYWFzdCBpbnN0YWxsYXRldXIgb3B0cmVkZW4gYWxzIGFkdmlzZXVyIHdhbm5lZXIgdSB0b2UgYmVudCBhYW4gZWVuIG5pZXV3ZSBDVi1pbnN0YWxsYXRpZS7CoDwvcD48cCBjbGFzcz1cInJ0ZUJsb2NrXCI+QWwgamFyZW4gd2Vya3QgQ3JveSBJbnN0YWxsYXRpZXRlY2huaWVrIG1ldCBnZXJlbm9tZWVyZGUgbWVya2VuIHpvYWxzIE5lZml0IHZhbiBkaXQgbWVyayBpcyBDcm95IEluc3RhbGxhdGlldGVjaG5pZWsgwqBlZW4gZXJrZW5kIGRlYWxlci48L3A+Iiwic2hvd0J0biI6dHJ1ZSwidGV4dE9uTGluayI6IkxlZXMgbWVlciDihpIiLCJsaW5rIjp7InZhbHVlIjoiQ1YiLCJ0eXBlIjoicGFnZSIsImhyZWYiOiIvQ1YiLCJyYXdfdXJsIjoiL3NpdGUvZmM0NmEyZDkvQ1Y/bmVlPXRydWUmZWQ9dHJ1ZSZzaG93T3JpZ2luYWw9dHJ1ZSZwcmV2aWV3PXRydWUmZG1fdHJ5X21vZGU9dHJ1ZSZkbV9jaGVja1N5bmM9MSJ9fSx7ImltYWdlIjoiaHR0cHM6Ly9pcnAuY2RuLXdlYnNpdGUuY29tL2ZjNDZhMmQ5L2RtczNyZXAvbXVsdGkvTGVra2FnZS1hNTMxMmVkYy5qcGciLCJpdGVtTGFiZWwiOiJMZWtrYWdlcyIsImhlYWRpbmdUeXBlIjoiaDQiLCJpdGVtVGl0bGUiOiJMZWtrYWdlIiwiaXRlbURlc2MiOiI8cCBjbGFzcz1cInJ0ZUJsb2NrXCI+PHN0cm9uZz5IZWVmdCB1IGVlbiB3YXRlcmxla2thZ2U/PC9zdHJvbmc+PC9wPjxwIGNsYXNzPVwicnRlQmxvY2tcIj5EcmFhaSBlZXJzdCBkZSBob29mZGtyYWFuIGRpY2h0LCBkZXplIGlzIHZhYWsgdGUgdmluZGVuIGluIGRlIG1ldGVycHV0LCBtZXRlcmthc3Qgb2Yga2VsZGVyLjwvcD48YnI+PHAgY2xhc3M9XCJydGVCbG9ja1wiPjxzdHJvbmc+SGVlZnQgdSBlZW4gZ2FzbGVrPzwvc3Ryb25nPjwvcD48cCBjbGFzcz1cInJ0ZUJsb2NrXCI+RHJhYWkgZWVyc3QgZGUgaG9vZmRrcmFhbiBkaWNodCwgZGV6ZSBpcyB0ZSB2aW5kZW4gaW4gZGUgbWV0ZXJrYXN0IG9mIGtlbGRlcmthc3QuPC9wPjxwIGNsYXNzPVwicnRlQmxvY2tcIj5XaWoga29tZW4gem8gc3BvZWRpZyBtb2dlbGlqayBvbSBkZSBsZWtrYWdlIG9wIHRlIHNwb3JlbiBlbiB0ZSBoZXJzdGVsbGVuLjwvcD48YnI+PHAgY2xhc3M9XCJydGVCbG9ja1wiPjxzdHJvbmc+VmVyemVrZXJpbmc8L3N0cm9uZz48L3A+PHAgY2xhc3M9XCJydGVCbG9ja1wiPlJlZ2VsbWF0aWcgb250c3RhYXQgZXIgb29rIGdldm9sZ3NjaGFkZS7CoDwvcD48cCBjbGFzcz1cInJ0ZUJsb2NrXCI+VmFhayBpcyBkZXplIGdlZGVrdCBkb29yIHV3IHZlcnpla2VyaW5nLsKgPC9wPjxwIGNsYXNzPVwicnRlQmxvY2tcIj5JbiBvdmVybGVnIG1ldCB1IGVuIGRlIHZlcnpla2VyYWFyIG1ha2VuIHdpaiBlZW4gb2ZmZXJ0ZSB2b29yIGRlIGhlcnN0ZWx3ZXJremFhbWhlZGVuIGVuIGRyYWdlbiBkYWFybmEgem9yZyB2b29yIGRlIHdlcmt6YWFtaGVkZW4uIERhYXJiaWoga3VudCB1IGRlbmtlbiBhYW4gby5hLjogdGVnZWx3ZXJrLCBzdHVjIGVuIHNjaGlsZGVyd2VyaywgcGFya2V0dmxvZXJlbiwgcHZjIHZsb2VyZW4sIGVuIGtldWtlbnJlcGFyYXRpZS4gwqA8L3A+PGJyPjxwIGNsYXNzPVwicnRlQmxvY2tcIj5Dcm95IEluc3RhbGxhdGlldGVjaG5pZWsgaGVlZnQgZ29lZGUgY29udGFjdGVuIG1ldCB2cmlqd2VsIGFsbGUgdmVyemVrZXJhYXJzIGVuIGV4cGVydGlzZSBidXJlYXU8L3A+Iiwic2hvd0J0biI6dHJ1ZSwidGV4dE9uTGluayI6IkxlZXMgbWVlciDihpIiLCJsaW5rIjp7InZhbHVlIjoibGVra2FnZSIsImxhYmVsIjoiIiwidHlwZSI6InBhZ2UiLCJocmVmIjoiL2xla2thZ2UiLCJyYXdfdXJsIjoiL3NpdGUvZmM0NmEyZDkvbGVra2FnZT9uZWU9dHJ1ZSZlZD10cnVlJnNob3dPcmlnaW5hbD10cnVlJnByZXZpZXc9dHJ1ZSZkbV90cnlfbW9kZT10cnVlJmRtX2NoZWNrU3luYz0xIn19LHsiaW1hZ2UiOiJodHRwczovL2lycC5jZG4td2Vic2l0ZS5jb20vZmM0NmEyZDkvZG1zM3JlcC9tdWx0aS9JTUdfOTQ3NS5KUEciLCJpdGVtTGFiZWwiOiIgVmxvZXJ2ZXJ3YXJtaW5nIiwiaGVhZGluZ1R5cGUiOiJoNCIsIml0ZW1UaXRsZSI6IiBWbG9lcnZlcndhcm1pbmciLCJpdGVtRGVzYyI6IjxwIGNsYXNzPVwicnRlQmxvY2tcIj48c3Ryb25nPlZsb2VydmVyd2FybWluZyBzdGFhdCBnYXJhbnQgdm9vciBiZWhhYWdsaWpraGVpZDwvc3Ryb25nPjwvcD48YnI+PHAgY2xhc3M9XCJydGVCbG9ja1wiPk1ldCB2bG9lcnZlcndhcm1pbmcga2llc3QgdSB2b29yIGVlbiBnZWxpamttYXRpZ2UgZW4gYmVoYWFnbGlqa2UgdmVyd2FybWluZy7CoDwvcD48cCBjbGFzcz1cInJ0ZUJsb2NrXCI+RGUgd2FybXRlYWZnaWZ0ZSB2aW5kdCBwbGFhdHMgdmlhIGhldCBncm90ZSB2bG9lcm9wcGVydmxhay4gRGUgZ2V2b2Vsc3RlbXBlcmF0dXVyIGlzIGhvZ2VyLiBEYWFyb20gYmVzcGFhcnQgdSBlbmVyZ2llLjwvcD4iLCJzaG93QnRuIjp0cnVlLCJ0ZXh0T25MaW5rIjoiTGVlcyBtZWVyIOKGkiIsImxpbmsiOnsidmFsdWUiOiJ2ZXJ3YXJpbmcta29lbGluZyIsImxhYmVsIjoiIiwidHlwZSI6InBhZ2UiLCJocmVmIjoiL3ZlcndhcmluZy1rb2VsaW5nIiwicmF3X3VybCI6Ii9zaXRlL2ZjNDZhMmQ5L3ZlcndhcmluZy1rb2VsaW5nP25lZT10cnVlJmVkPXRydWUmc2hvd09yaWdpbmFsPXRydWUmcHJldmlldz10cnVlJmRtX3RyeV9tb2RlPXRydWUmZG1fY2hlY2tTeW5jPTEifX1dLCJzaG93SW1hZ2VzIjp0cnVlLCJsYXlvdXRzIjoibGF5b3V0LWEiLCJtb2JpbGVMYXlvdXRUb2dnbGUiOmZhbHNlLCJmdWxsV2lkdGhJbWciOnRydWV9" data-widget-id="7b2ba547771b4d4db17e3e2b9f0abd0c" data-widget-version="225" dmle_extension="custom_extension" icon="false" id="1088046178" surround="false"> <div class="wrapper layout-a"> <nav class="nav desktop swipe-menu"> <div class="tab-label active layout-a"> <h4 class="horizontal-label">CV Ketels</h4>
+</div>
+<div class="tab-label layout-a not-active"> <h4 class="horizontal-label">Lekkages</h4>
+</div>
+<div class="tab-label layout-a not-active"> <h4 class="horizontal-label">Vloerverwarming</h4>
+</div>
+</nav>
+<div class="tab layout-a active"> <div class="image-container layout-a" style="background-image: url('https://lirp.cdn-website.com/fc46a2d9/dms3rep/multi/opt/images-1920w.jpg');"><img alt="" class="image" onerror="handleImageLoadError(this)" src="./images/images-1920w.jpg"/></div>
+<div class="tab-space"></div>
+<div class="tab-text-container"> <div class="tab-description"> <div class="desc-title"> <p class="">Centrale verwarming</p>
+</div>
+<p></p>
+<p class="rteBlock">Het aanschaffen van een CV-installie is niet eenvoudig, het installeren hiervan is een nog ingewikkeldere klus.</p><p class="rteBlock">Croy Installatietechniek kan naast installateur optreden als adviseur wanneer u toe bent aan een nieuwe CV-installatie. </p><p class="rteBlock">Al jaren werkt Croy Installatietechniek met gerenomeerde merken zoals Nefit van dit merk is Croy Installatietechniek  een erkend dealer.</p> <p></p>
+</div>
+<div class="btn-container"> <a class="dmWidget button-class" href="/CV" raw_url="/site/fc46a2d9/CV?nee=true&amp;ed=true&amp;showOriginal=true&amp;preview=true&amp;dm_try_mode=true&amp;dm_checkSync=1" type="page" value="CV"> <span class="text">Lees meer →</span>
+<span class="iconBg"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="tab layout-a"> <div class="image-container layout-a" style="background-image: url('https://lirp.cdn-website.com/fc46a2d9/dms3rep/multi/opt/Lekkage-a5312edc-1920w.jpg');"><img alt="" class="image" onerror="handleImageLoadError(this)" src="./images/Lekkage-a5312edc-1920w.jpg"/></div>
+<div class="tab-space"></div>
+<div class="tab-text-container"> <div class="tab-description"> <div class="desc-title"> <p class="">Lekkage</p>
+</div>
+<p></p>
+<p class="rteBlock"><strong>Heeft u een waterlekkage?</strong></p><p class="rteBlock">Draai eerst de hoofdkraan dicht, deze is vaak te vinden in de meterput, meterkast of kelder.</p><br/><p class="rteBlock"><strong>Heeft u een gaslek?</strong></p><p class="rteBlock">Draai eerst de hoofdkraan dicht, deze is te vinden in de meterkast of kelderkast.</p><p class="rteBlock">Wij komen zo spoedig mogelijk om de lekkage op te sporen en te herstellen.</p><br/><p class="rteBlock"><strong>Verzekering</strong></p><p class="rteBlock">Regelmatig ontstaat er ook gevolgschade. </p><p class="rteBlock">Vaak is deze gedekt door uw verzekering. </p><p class="rteBlock">In overleg met u en de verzekeraar maken wij een offerte voor de herstelwerkzaamheden en dragen daarna zorg voor de werkzaamheden. Daarbij kunt u denken aan o.a.: tegelwerk, stuc en schilderwerk, parketvloeren, pvc vloeren, en keukenreparatie.  </p><br/><p class="rteBlock">Croy Installatietechniek heeft goede contacten met vrijwel alle verzekeraars en expertise bureau</p> <p></p>
+</div>
+<div class="btn-container"> <a class="dmWidget button-class" href="/lekkage" label="" raw_url="/site/fc46a2d9/lekkage?nee=true&amp;ed=true&amp;showOriginal=true&amp;preview=true&amp;dm_try_mode=true&amp;dm_checkSync=1" type="page" value="lekkage"> <span class="text">Lees meer →</span>
+<span class="iconBg"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="tab layout-a"> <div class="image-container layout-a" style="background-image: url('https://lirp.cdn-website.com/fc46a2d9/dms3rep/multi/opt/IMG_9475-1920w.JPG');"><img alt="" class="image" onerror="handleImageLoadError(this)" src="./images/IMG_9475-1920w.JPG"/></div>
+<div class="tab-space"></div>
+<div class="tab-text-container"> <div class="tab-description"> <div class="desc-title"> <p class="">Vloerverwarming</p>
+</div>
+<p></p>
+<p class="rteBlock"><strong>Vloerverwarming staat garant voor behaaglijkheid</strong></p><br/><p class="rteBlock">Met vloerverwarming kiest u voor een gelijkmatige en behaaglijke verwarming. </p><p class="rteBlock">De warmteafgifte vindt plaats via het grote vloeroppervlak. De gevoelstemperatuur is hoger. Daarom bespaart u energie.</p> <p></p>
+</div>
+<div class="btn-container"> <a class="dmWidget button-class" href="/verwaring-koeling" label="" raw_url="/site/fc46a2d9/verwaring-koeling?nee=true&amp;ed=true&amp;showOriginal=true&amp;preview=true&amp;dm_try_mode=true&amp;dm_checkSync=1" type="page" value="verwaring-koeling"> <span class="text">Lees meer →</span>
+<span class="iconBg"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dmSpacer u_1050339837" data-element-type="spacer" id="1050339837"></div>
+</div>
+</div>
+</div>
+<div class="u_1974318183 dmRespRow mobile-columns-reversed fullBleedChanged fullBleedMode hasBackgroundOverlay dmSectionParallaxNew" data-anchor="Free Quote" data-anim-desktop="fadeInCombo" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJlbnRyYW5jZSIsImFuaW1hdGlvbiI6ImZhZGVJbkNvbWJvIiwiZHVyYXRpb24iOjEuMjUsImRlbGF5IjowLCJpbnRlbnNpdHkiOjEsImRpciI6ImluLXBsYWNlIn19" id="1974318183" style="text-align: center;"> <div class="dmRespColsWrapper" id="1362783534"> <div class="u_1554327811 dmRespCol small-12 medium-12 large-12" id="1554327811"> <div class="u_1224030969 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1224030969" style="transition: none 0s ease 0s; display: block; text-align: center;"><h2 class="text-align-center" style="color:rgb(255, 255, 255);"><span style="color: rgb(255, 255, 255); display: initial;">Tevreden klanten</span></h2></div> <div class="u_1403226496 flex-container dmImageSlider dmNoMargin dmNoMark" data-element-type="dSliderId" data-widget-type="imageSlider" dmle_volatile_widget="true" id="1403226496"> <div class="flexslider ed-version nav-layout-2" id="1468813878" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true,'prevText':'','nextText':''}"> <ul class="slides" id="1481602373"> <li animation="fadeInLeft" class="" color-overlay="true" id="1609747281" layout="center" position="center" show-caption="true" show-content="true" text-background="true"><img dm="true" height="225.984375" id="1899890131" onerror="handleImageLoadError(this)" src="./images/CLEAR-BACKGROND-1920x620-2304w.png" width="1920.0"/> <div class="color-overlay" id="1659605434"></div>
+<div class="slide-inner" id="1952605866"> <div class="text-wrapper" id="1940193056"> <h3 class="slide-title u_1423898048" id="1423898048">"Croy installatietechniek heeft wonderspul, onder eigen naam, geleverd om onze verstopte badkamerafvoer te ontstoppen. Na 2 keer met HG raakte hij steeds weer verstopt. Het was dezelfde dag nog opgelost! Bedankt."</h3>
+<div class="slide-text richText u_1799226201" id="1799226201" style=""><br/></div></div>
+<div class="slide-button dmWidget clearfix slide-button-invisible" id="1527872512"> <span class="iconBg" id="1772400484"> <span class="icon hasFontIcon icon-star" id="1392069013"></span>
+</span>
+<span class="text" id="1958265243">Knop</span>
+</div>
+</div>
+</li>
+<li animation="fadeInLeft" class="" color-overlay="true" id="1244750756" layout="center" position="center" show-caption="true" show-content="true" text-background="true"><img dm="true" height="225.984375" id="1692775014" onerror="handleImageLoadError(this)" src="./images/empty_02-799x346-2304w.png" width="1920.0"/> <div class="color-overlay" id="1371586410"></div>
+<div class="slide-inner" id="1520519575"> <div class="text-wrapper" id="1868104926"> <h3 class="slide-title u_1894007679" id="1894007679">"Croy Installatietechniek is een ten eerste zeer vakkundig, klantgericht en servicegericht bedrijf. Stefan heeft werkelijk alles gedaan om de leidingbreuk bij ons te achterhalen. Croy Installatiebedrijf denkt met de klant mee, overlegt goed met de klant en gaat tot het uiterste om het probleem opgelost te krijgen. Kortom: top! Echt een aanrader"</h3>
+<div class="slide-text richText u_1843329114" id="1843329114"><br/></div></div>
+<div class="slide-button dmWidget clearfix slide-button-invisible" id="1833235248"> <span class="iconBg" id="1627999076"> <span class="icon hasFontIcon icon-star" id="1644737522"></span>
+</span>
+<span class="text" id="1489164404">Knop</span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="dmSpacer u_1862036713" data-element-type="spacer" id="1862036713"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sticky-widgets-container-global" id="1487238697"></div>
+<div class="dmFooterContainer"> <div class="u_fcontainer f_hcontainer dmFooter p_hfcontainer" id="fcontainer"> <div class="dmFooterResp generalFooter" dm:templateorder="250" id="1943048428"> <div class="dmRespRow u_1061962457" id="1061962457"> <div class="dmRespColsWrapper" id="1577710112"> <div class="u_1572528794 dmRespCol small-12 medium-6 large-6" id="1572528794"> <div :="" background-image="" class="u_1423332001 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1423332001"> <h2 class="text-align-left"><span style="color: rgb(255, 255, 255); display: initial;">Snel en betrouwbaar</span></h2>
+</div> <div background-image":""}"="" class="u_1679585636 dmNewParagraph" data-element-type="paragraph" data-styletopreserve="{" data-version="5" id="1679585636" style=""> <h5 class="text-align-left"><span style="display: initial; font-weight: 500; color: rgb(255, 255, 255);">We zijn 24/7 bereikbaar per telefoon</span></h5>
+</div></div>
+<div class="u_1913553546 dmRespCol small-12 medium-6 large-6" id="1913553546"> <a adwords="" class="u_1537819126 default dmDefaultGradient align-center dmCall voipReplacement dmWidget dmNoMark dmWwr" contenteditable="false" data-buttonstyle="FLAT_ROUND_ICON" data-display-type="block" data-element-type="clicktocall" description="Bel  06 16665131" dmle_extension="clicktocall" href="tel:06-16665131" icon="true" icon-name="icon-phone" id="1537819126" image="" onclick=";return dm_gaq_push_event('ClickToCall', 'Call',null,'fc46a2d9', this);" phone="06-16665131" surround="true" text="" wr="true"> <span aria-hidden="true" class="iconBg"> <span class="icon hasFontIcon icon-phone"></span>
+</span>
+<span class="text">Bel  06 16665131</span>
+</a>
+</div>
+</div>
+</div>
+<div class="u_1686005289 dmRespRow" id="1686005289" style="text-align: center;"> <div class="dmRespColsWrapper" id="1837856251"> <div class="u_1449882040 dmRespCol small-12 large-4 medium-4" id="1449882040"> <div class="u_1432396660 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1432396660"><img class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/fc46a2d9/dms3rep/multi/Logo_Croy_FC_3x2cm+%28002%29.jpg" height="96.21875" id="1207286069" onerror="handleImageLoadError(this)" src="./images/Logo_Croy_FC_3x2cm+%28002%29-347w.jpg" width="289.515625"/></div>
+</div>
+<div class="u_1738521024 dmRespCol small-12 large-4 medium-4" id="1738521024"> <div class="u_1917625544 dmRespRow" id="1917625544"> <div class="dmRespColsWrapper" id="1170135312"> <div class="u_1539245117 dmRespCol small-12 large-3 medium-3" id="1539245117"> <div class="u_1828174876 dmDividerWrapper clearfix hide-for-large" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1828174876"><hr class="dmDivider" id="1299457222" style="border-width:2px; border-top-style:solid; color:grey;"/></div>
+<div class="u_1550140067 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1550140067"> <a file="false" href="mailto:info@croyinstallatietechniek.nl" id="1380328505"> <svg class="svg u_1625310534" data-icon-name="li-envelope" id="1625310534" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <path d="M17.8,28.2v43.6h64.4V28.2H17.8z M77.7,30.3L50,48.8L22.3,30.3H77.7z M19.9,69.7V31.2L50,51.2l30.1-20.1v38.5H19.9z" id="1814031491"></path>
+</svg>
+</a>
+</div>
+</div>
+<div class="u_1107134920 dmRespCol small-12 large-9 medium-9" id="1107134920"> <div class="u_1013047564 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1013047564" style="transition: none 0s ease 0s;"> <h6 class="text-align-left m-text-align-center"><a href="mailto:info@croyinstallatietechniek.nl" style="text-decoration: none; color: rgb(21, 32, 75); font-weight: 700; display: initial;" target="_blank" type="email">E-mail</a></h6>
+</div> <div background-image":""}"="" class="u_1542335834 dmNewParagraph" data-element-type="paragraph" data-styletopreserve="{" data-version="5" id="1542335834"> <h6 class="text-align-left m-text-align-center"><a href="mailto:info@croyinstallatietechniek.nl" style="text-decoration: none; display: initial; color: rgb(21, 32, 75);" target="_blank" type="email">info@croyinstallatietechniek.nl</a></h6>
+</div></div>
+</div>
+</div>
+</div>
+<div class="dmRespCol small-12 u_1698552461 medium-4 large-4" id="1698552461"> <div class="u_1625163293 dmRespRow hide-for-medium" id="1625163293"> <div class="dmRespColsWrapper" id="1066118493"> <div class="u_1230797817 dmRespCol small-12 large-3 medium-3" id="1230797817"> <div class="u_1513486964 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1513486964"> <a file="false" href="tel:06-16665131" id="1314800803"> <svg class="svg u_1778952585" data-icon-name="wp-phone" id="1778952585" viewbox="0 0 70 70" xmlns="http://www.w3.org/2000/svg"> <g> <path d="M25.3,44.8C35.7,55.3,44.2,56,46.6,56c3.9,0,9.4-5,9.4-6.3v-2.5c0-0.6-0.4-1.1-1-1.3l-10-3.2c-0.5-0.2-1,0-1.4,0.3L40,46.8
+		c-0.4,0.4-1.1,0.5-1.6,0.2c-1.5-0.9-4.8-2.9-8.6-6.8c-3.8-3.8-5.9-7.1-6.8-8.6c-0.3-0.5-0.2-1.2,0.2-1.6l3.7-3.7
+		c0.4-0.4,0.5-0.9,0.3-1.4l-3.2-10c-0.2-0.6-0.7-1-1.3-1h-2.5C19,14.1,14,19.7,14,23.5C14,25.8,14.8,34.3,25.3,44.8L25.3,44.8z"></path>
+</g>
+</svg>
+</a>
+</div>
+</div>
+<div class="u_1028948777 dmRespCol small-12 large-9 medium-9" id="1028948777"> <div class="u_1274227706 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1274227706" style="transition: none 0s ease 0s; display: block;"> <h6 class="text-align-left m-text-align-center"><span style="display: initial;">Telefoon</span></h6>
+</div> <div background-image":""}"="" class="u_1756288521 dmNewParagraph" data-element-type="paragraph" data-styletopreserve="{" data-version="5" id="1756288521"> <h6 class="text-align-left m-text-align-center"><a href="tel:06-16665131" style="color: rgb(21, 32, 75); display: initial; text-decoration: none;" target="_blank" type="call">06-16665131</a></h6>
+</div></div>
+</div>
+</div>
+<div class="widget-b6c66f dmCustomWidget" data-element-type="custom_extension" data-lazy-load="true" data-title="" data-widget-config="eyJ0b3BCdG5UeHQiOiJOYWFyIEJvdmVuIn0=" data-widget-id="b6c66fdbb16341bf8439146cdc9392be" data-widget-version="2" dmle_extension="custom_extension" icon="false" id="1065110403" surround="false"> <button class="top-btn-background top-btn-inner-color top-btn" id="toTopButton" onclick="toTop()" title="Go to the Top">Naar Boven</button>
+<script>
+
+
+let button = document.getElementById("toTopButton");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    button.style.display = "block";
+  } else {
+    button.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function toTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+            </script>
+</div>
+</div>
+</div>
+</div>
+<div class="dmRespRow u_1846687400" id="1846687400"> <div class="dmRespColsWrapper" id="1510273294"> <div class="dmRespCol large-12 medium-12 small-12" id="1213951280"> <div class="widget-1f5975 u_1046478755 dmCustomWidget" data-element-type="custom_extension" data-lazy-load="" data-title="" data-widget-config="eyJjb3B5cmlnaHRUZXh0IjoiPHAgY2xhc3M9XCJydGVCbG9ja1wiPkFsbGUgcmVjaHRlbiB2b29yYmVob3VkZW4gfCBDcm95IGluc3RhbGxhdGllIHRlY2huaWVrIEIuVi48L3A+IiwicmV2ZXJzZUZsYWciOmZhbHNlfQ==" data-widget-id="1f5975986930429f819d4cd2154b5c4a" data-widget-version="24" dmle_extension="custom_extension" icon="false" id="1046478755" surround="false" wr="false"> <div class="copyright"> <span class="copyright-year">© 2025 </span>
+<span><p class="rteBlock">Alle rechten voorbehouden | Croy installatie techniek B.V.</p></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-element-type="powered_by" dmle_extension="powered_by" icon="true" id="1236746004" surround="false"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+<!-- Google Fonts Include -->
+<!-- loadCSS function fonts.jsp-->
+<link as="style" fetchpriority="low" href="https://irp.cdn-website.com/fonts/css2?family=Lato:wght@100;300;400;700;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Montserrat:wght@100..900&amp;family=Amiko:wght@400;600;700&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;family=Comfortaa:wght@300..700&amp;subset=latin-ext&amp;display=swap" onload="loadCSS(this)" rel="preload"/>
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link as="style" fetchpriority="low" href="https://static.cdn-website.com/mnlt/production/5752/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" onload="loadCSS(this)" rel="preload"/>
+<!-- End of RT CSS Include -->
+<link as="style" fetchpriority="low" href="https://irp.cdn-website.com/WIDGET_CSS/b60176f50e04ef19070e5dd84e8d976f.css" id="widgetCSS" onload="loadCSS(this)" rel="preload"/>
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+<!-- Site CSS -->
+<link as="style" fetchpriority="low" href="https://irp.cdn-website.com/fc46a2d9/files/fc46a2d9_withFlex_1.min.css?v=79" id="siteGlobalCss" onload="loadCSS(this)" rel="preload"/>
+<style id="customWidgetStyle" type="text/css">
+</style>
+<style id="innerPagesStyle" type="text/css">
+</style>
+<style id="additionalGlobalCss" type="text/css">
+</style>
+<!-- Page CSS -->
+<link as="style" fetchpriority="low" href="https://irp.cdn-website.com/fc46a2d9/files/fc46a2d9_home_withFlex_1.min.css?v=79" id="homeCssLink" onload="loadCSS(this)" rel="preload"/>
+<style id="pagestyle" type="text/css">
+</style>
+<style id="pagestyleDevice" type="text/css">
+</style>
+<!-- Flex Sections CSS -->
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-70, .size-70, .size-70 > font { font-size: 70px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "DUTCH"
+    window.isSitePreview = false;
+</script>
+<script>
+    window.customWidgetsFunctions["1f5975986930429f819d4cd2154b5c4a~24"] = function (element, data, api) {
+        null
+    };
+</script>
+<script>
+    window.customWidgetsFunctions["b6c66fdbb16341bf8439146cdc9392be~2"] = function (element, data, api) {
+        null
+    };
+</script>
+<script>
+    window.customWidgetsFunctions["7b2ba547771b4d4db17e3e2b9f0abd0c~225"] = function (element, data, api) {
+        var $element = $(element);
+var $tabs = $element.find('.tab');// not relevant for mobile
+var $tabLables = $element.find('.tab-label');
+
+if ($tabs.length > 0) { 
+    if (data.device==="mobile" && data.config.mobileLayoutToggle) {// on mobile and dropdown mode
+    	addMobileClickListener($element);
+    } 
+    else { // on desktop or accordion mobile layout
+       addDesktopClickListener($element);
+    }
+    addHoverHandler($tabLables);
+}
+
+function addMobileClickListener($element)  {
+    // tab label mobile click handler;
+    $element.off('click.tabs.mobile').on('click.tabs.mobile', '.tab-label', function() {
+    	    var $clicked_tab_item = $(this).closest('.tab-item');
+            var $siblings = $clicked_tab_item.siblings();
+            domChangeOnMobileClick($clicked_tab_item, $siblings);
+        });
+        
+}
+
+function addDesktopClickListener($element) {
+        $tabLables.off('click.tabs.desktop').on('click.tabs.desktop', function(event) {
+            var $curr = $(this);
+            // layout-e-aux-tab-label is an auxilary class represents the
+            // remaining space on layout 3's labels, it shouldn't be selectable
+            if ( $curr.hasClass('active') || $curr.hasClass('layout-e-aux-tab-label')){ 
+                return;
+            }
+            domChangeOnDesktopClick($curr);
+        });
+        
+        
+}
+
+
+function addHoverHandler($tabLables) {
+  //background hover issue hack - pseusu class support in widget builder is limited
+    $tabLables.off('mouseover.tabs').on('mouseenter.tabs', function(event) {
+        var $this = $(this);
+        // aux label on layout e should'nt be selected
+        if ($this.hasClass('layout-e-aux-tab-label')) return;
+        $this.addClass('hover');
+        $this.removeClass('not-active');
+    });
+    $tabLables.off('mouseout.tabs').on('mouseleave.tabs', function(event){
+        var $this = $(this);
+        // aux label on layout e should'nt be selected
+        if ($this.hasClass('layout-e-aux-tab-label')) return;
+        if (! $this.hasClass('active') ) {
+            $this.removeClass('hover');
+            $this.addClass('not-active');
+        }
+    });
+}
+
+function domChangeOnMobileClick($clicked_tab_item, $siblings) {
+    $siblings.removeClass('expanded');
+    $siblings.find('.tab-label').removeClass('active').addClass('not-active');
+    $clicked_tab_item.toggleClass('expanded');
+    $clicked_tab_item.find('.tab-label').toggleClass('active');
+}
+
+function domChangeOnDesktopClick($curr) {
+    $curr.addClass('active').removeClass('not-active').removeClass('hover');
+    $siblings = $curr.siblings();
+    $siblings.removeClass('active').addClass('not-active').removeClass('hover');
+    //If no argument is passed to the .index() method, the return value is an integer indicating the position of the 
+    //first element within the jQuery object relative to its sibling elements.
+    var index = $curr.index();
+    $tabs.removeClass('active');
+    $tabs.eq(index).addClass('active');
+}
+    };
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_5752";
+    var build = "2025-08-28T13_05_53";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2025-08-28T13_05_53";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+<!-- Load jQuery -->
+<script id="d-js-jquery" src="./js/jquery-3.7.0.min.js" type="text/javascript"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+<!-- HEAD RT JS Include -->
+<script id="d-js-params">
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["feature.flag.mappy.kml"] =false;
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/5752';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/5752';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['common.map.defaults.radiusSize'] = '1500';
+    rtCommonProps['common.map.defaults.radiusBg'] = 'rgba(255, 255, 255, 0.4)';
+    rtCommonProps['common.map.defaults.strokeColor'] = 'rgba(255, 255, 255, 1)';
+    rtCommonProps['common.map.defaults.strokeSize'] = '2';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+    rtCommonProps["streamline.monolith.personalization.skipRuleConditionsForPreview.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["editor.classicHybrid.photogallery.fix"] =true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["contact.form.browserValidation.enabled"] =true;
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["runtime.cwv.report.cls.enabled"] =true;
+    rtFlags["editor.link.on.container"] =true;
+    rtFlags["flex.runtime.popup.with.show"] =true;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+    rtFlags["flex.megaMenu.a11y"] =true;
+</script>
+<script id="d-js-core" src="./js/d-js-one-runtime-unified-desktop.min.js"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="./js/d-js-jquery-migrate.min.js"></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script id="d_track_campaign" type="text/javascript">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript">
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+<script id="d_track_sp" type="text/javascript">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: 'fc46a2d9'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+<div id="P6iryBW0Wu" style="display:none;"></div>
+<!-- photoswipe markup -->
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+<!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+<div class="pswp__bg"></div>
+<!-- Slides wrapper with overflow:hidden. -->
+<div class="pswp__scroll-wrap">
+<!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+<div class="pswp__container">
+<div class="pswp__item"></div>
+<div class="pswp__item"></div>
+<div class="pswp__item"></div>
+</div>
+<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+<div class="pswp__ui pswp__ui--hidden">
+<div class="pswp__top-bar">
+<!--  Controls are self-explanatory. Order can be changed. -->
+<div class="pswp__counter"></div>
+<button class="pswp__button pswp__button--close" title="Sluiten (Esc)"></button>
+<button class="pswp__button pswp__button--share" title="Delen"></button>
+<button class="pswp__button pswp__button--fs" title="Volledig scherm in- of uitschakelen"></button>
+<button class="pswp__button pswp__button--zoom" title="In-/uitzoomen"></button>
+<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+<!-- element will get class pswp__preloader--active when preloader is running -->
+<div class="pswp__preloader">
+<div class="pswp__preloader__icn">
+<div class="pswp__preloader__cut">
+<div class="pswp__preloader__donut"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class="pswp__share-tooltip"></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Vorige (pijl naar links)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Volgende (pijl naar rechts)">
+</button>
+<div class="pswp__caption">
+<div class="pswp__caption__center"></div>
+</div>
+</div>
+</div>
+</div>
+<div data-locale="nl_NL" id="fb-root"></div>
+<!-- Alias: fc46a2d9 -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div class="dmPopup" id="dmPopup">
+<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+<div class="dmPopupTitle"> <span></span> Share by:</div>
+<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+</body>
+</html>
